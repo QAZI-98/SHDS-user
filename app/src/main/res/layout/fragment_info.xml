@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark"
+
+    >
+
+    <ProgressBar
+
+        android:id="@+id/progressBar1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/colorAccent"
+        android:id="@+id/lo1"
+        >
+
+        <EditText
+            android:textColorHint="@color/colorAccent"
+            android:enabled="false"
+            android:textColor="@color/white"
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="25dp"
+
+        android:id="@+id/lo3"
+        android:layout_below="@id/lo1"
+        android:layout_width="match_parent"
+        android:textColorHint="@color/colorAccent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:textColorHint="@color/colorAccent"
+
+            android:textColor="@color/white"
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="name"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+
+        android:enabled="false"
+        android:id="@+id/update"
+        android:text="Update"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:layout_margin="70dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lo3"
+        />
+
+</RelativeLayout>

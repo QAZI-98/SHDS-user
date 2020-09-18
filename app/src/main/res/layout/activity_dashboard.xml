@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.fyp.dashboard"
+    android:orientation="vertical"
+    android:background="@color/dark"
+    >
+
+        <ImageView
+
+            android:id="@+id/home"
+   android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_home_24"
+            app:tint="@color/colorPrimary" />
+
+        <ImageView
+            android:id="@+id/signout"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_baseline_vpn_key_24"
+            app:tint="@color/design_default_color_error" />
+
+
+    <TextView
+        android:id="@+id/welcom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/home"
+        android:layout_centerHorizontal="true"
+        android:text="Welcome to smart health diagnostic"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+   />
+    <TextView
+        android:id="@+id/welco2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcom"
+        android:layout_centerHorizontal="true"
+        android:text="system"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        />
+
+
+
+            <ImageView
+
+                android:layout_below="@id/welcom"
+                android:id="@+id/search_d"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginStart="60dp"
+                android:src="@drawable/newsfeed" />
+
+            <TextView
+                android:id="@+id/appoint_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/search_d"
+                android:text="Search Disease"
+                android:layout_marginLeft="40dp"
+  android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/view_doctor"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginStart="90dp"
+                android:src="@drawable/doc"
+                app:tint="@color/white"
+                android:layout_toRightOf="@id/search_d"
+                android:layout_below="@id/welcom"
+                />
+
+
+            <TextView
+
+                android:layout_below="@id/view_doctor"
+                android:layout_toRightOf="@+id/appoint_text"
+                android:layout_marginStart="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="View Dcotors"
+                android:textColor="@color/white"
+                />
+
+
+            <ImageView
+
+                android:layout_below="@+id/appoint_text"
+
+                android:id="@+id/appointment"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="60dp"
+                android:src="@drawable/placeholder"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/proftext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/appointment"
+                android:layout_marginStart="50dp"
+                android:textSize="18sp"
+                android:text="Appointments"
+                android:textColor="@color/white"
+                />
+
+
+    <ImageView
+
+        android:id="@+id/profile"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_below="@+id/appoint_text"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/appointment"
+        android:src="@drawable/user"
+        app:tint="@color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile"
+        android:layout_toRightOf="@id/appointment"
+        android:layout_marginStart="110dp"
+        android:textSize="18sp"
+        android:text="Profile"
+        android:textColor="@color/white"
+        />
+
+
+
+    <ImageView
+
+        android:layout_below="@+id/proftext"
+       android:id="@+id/aboutu"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="60dp"
+        android:src="@drawable/pngw"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/feedbacktext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aboutu"
+        android:layout_marginStart="70dp"
+        android:textSize="18sp"
+        android:text="About Us"
+        android:textColor="@color/white"
+        />
+
+
+    <ImageView
+        android:layout_below="@+id/proftext"
+        android:layout_toEndOf="@id/feedbacktext"
+        android:id="@+id/feedbac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="90dp"
+        android:src="@drawable/ic_baseline_feedback_24"
+        app:tint="@color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/feedbac"
+        android:layout_toEndOf="@id/feedbacktext"
+        android:layout_marginStart="90dp"
+        android:textSize="18sp"
+        android:text="Feedback"
+        android:textColor="@color/white"
+        />
+
+
+
+</RelativeLayout>

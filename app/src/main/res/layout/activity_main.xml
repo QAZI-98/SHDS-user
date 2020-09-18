@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash"
+    tools:context="com.example.fyp.LoginActivity">
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="335dp"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Smart Health Diagnostics system"
+        android:textColor="@color/white"
+        android:textSize="23dp" />
+
+
+    <com.agrawalsuneet.dotsloader.loaders.TashieLoader
+        android:id="@+id/tashieLoader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="435dp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tashieloader_animDelay="200"
+        app:tashieloader_animDur="1000"
+        app:tashieloader_dotsColor="@color/colorPrimary"
+        app:tashieloader_dotsDist="5dp"
+        app:tashieloader_dotsRadius="8dp"
+        app:tashieloader_interpolator="@android:anim/accelerate_interpolator"
+        app:tashieloader_noOfDots="6" />
+
+
+</RelativeLayout>
