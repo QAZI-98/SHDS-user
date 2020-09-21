@@ -11,6 +11,7 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="8dp"
     android:elevation="5dp"
+
     >
 
     <RelativeLayout
@@ -78,17 +79,17 @@
 
 
         <Button
-    android:layout_below="@+id/phone"
-    android:id="@+id/confirm_button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:layout_alignParentRight="true"
-    android:background="@color/dark"
-    android:textColor="@color/white"
-    android:text="confirm"
+            android:layout_below="@+id/phone"
+            android:id="@+id/confirm_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/dark"
+            android:textColor="@color/white"
+            android:text="cancel"
 
-    />
+            />
 
 
     </RelativeLayout>
