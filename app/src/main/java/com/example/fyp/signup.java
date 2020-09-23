@@ -32,7 +32,7 @@ public class signup extends AppCompatActivity {
     Button signup_button;
     TextView signin;
     FirebaseAuth auth;
-    String _email, _pass, _name,gender,_phone;
+    String _email, _pass, _name,gender="male",_phone;
     user person;
     DatabaseReference databaseReference;
     ProgressBar pb1;
@@ -116,7 +116,7 @@ public class signup extends AppCompatActivity {
 
                                                         else{
 
-                                                            Snackbar.make(view,"Something went wrong!", Snackbar.LENGTH_LONG)
+                                                            Snackbar.make(view,task.getException().getMessage(), Snackbar.LENGTH_LONG)
                                                                     .setAction("Close", new View.OnClickListener() {
                                                                         @Override
                                                                         public void onClick(View view) {
@@ -131,7 +131,7 @@ public class signup extends AppCompatActivity {
                                                 });
                                     }
                                     else{
-                                        Snackbar.make(view,"Something went wrong!", Snackbar.LENGTH_LONG)
+                                        Snackbar.make(view,task.getException().getMessage(), Snackbar.LENGTH_LONG)
                                                 .setAction("Close", new View.OnClickListener() {
                                                     @Override
                                                     public void onClick(View view) {

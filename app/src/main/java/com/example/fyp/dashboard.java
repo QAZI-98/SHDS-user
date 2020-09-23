@@ -29,6 +29,14 @@ public class dashboard extends AppCompatActivity {
         appointment = findViewById(R.id.appointment);
 
 
+        appointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i = new Intent(dashboard.this, appointment_page.class);
+                startActivity(i);
+            }
+        });
+
         about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

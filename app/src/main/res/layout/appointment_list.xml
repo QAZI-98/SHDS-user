@@ -4,14 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="8dp"
-    android:elevation="5dp"
-
+    android:backgroundTint="@color/dark"
     >
 
     <RelativeLayout
@@ -20,9 +13,9 @@
         android:id="@+id/list_root"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="10dp"
+      android:padding="10dp"
+        android:layout_marginBottom="25dp"
+
         >
 
         <TextView
@@ -66,15 +59,24 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:text="day" />
-
         <TextView
             android:layout_below="@+id/day"
+            android:textSize="16sp"
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="Date" />
+
+        <TextView
+            android:layout_below="@+id/date"
             android:textSize="16sp"
             android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:text="phone number" />
+
 
 
 
@@ -87,7 +89,7 @@
             android:layout_alignParentRight="true"
             android:background="@color/dark"
             android:textColor="@color/white"
-            android:text="cancel"
+            android:text="Cancel"
 
             />
 

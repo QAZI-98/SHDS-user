@@ -59,7 +59,7 @@ public class form_result extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_result);
 
-        recyclerView = findViewById(R.id.list);
+        recyclerView = findViewById(R.id.frlist);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         doc_reference= FirebaseDatabase.getInstance().getReference("doctor");
@@ -86,7 +86,7 @@ public class form_result extends AppCompatActivity {
 
 
 
-        doc_reference.addValueEventListener(new ValueEventListener() {
+        doc_reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -170,10 +170,6 @@ public class form_result extends AppCompatActivity {
             holder.confirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View view) {
-
-
-
-
 
                     appointment_reference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override

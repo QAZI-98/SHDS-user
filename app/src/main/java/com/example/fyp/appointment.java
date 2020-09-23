@@ -145,4 +145,18 @@ public class appointment {
 
 
 
+    public appointment(String _appoint_id,
+            String _appoint_date
+            ,String _special,String _docname,String _location,String _phone,String _day,String _time){
+       appoint_id=_appoint_id;
+        appoint_date=_appoint_date;
+     doc_name = _docname;
+        speciality=_special;
+        doc_phone=_phone;
+        location=_location;
+        day=_day;
+        time=_time;
+    }
+
+
 }

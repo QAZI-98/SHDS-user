@@ -6,17 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".form_result"
     android:background="@color/dark"
-    >
 
+    >
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/frlist"
+android:layout_margin="15dp"
         >
     </androidx.recyclerview.widget.RecyclerView>
-
-
 
 
 

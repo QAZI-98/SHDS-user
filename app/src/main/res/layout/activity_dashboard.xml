@@ -11,8 +11,7 @@
     >
 
         <ImageView
-
-            android:id="@+id/home"
+           android:id="@+id/home"
    android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:layout_width="50dp"
