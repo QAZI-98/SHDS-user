@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:backgroundTint="@color/dark"
+
+    android:elevation="0dp"
     >
 
     <RelativeLayout
-
         android:background="@color/colorPrimary"
         android:id="@+id/list_root"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-      android:padding="10dp"
         android:layout_marginBottom="25dp"
-
+        android:padding="10dp"
         >
 
         <TextView
@@ -60,17 +59,9 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:text="day" />
-        <TextView
-            android:layout_below="@+id/day"
-            android:textSize="16sp"
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:text="Date" />
 
         <TextView
-            android:layout_below="@+id/date"
+            android:layout_below="@+id/day"
             android:textSize="16sp"
             android:id="@+id/phone"
             android:layout_width="wrap_content"
@@ -81,20 +72,8 @@
 
 
 
-        <Button
-            android:layout_below="@+id/phone"
-            android:id="@+id/confirm_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_alignParentRight="true"
-            android:background="@color/dark"
-            android:textColor="@color/white"
-            android:text="Cancel"
-
-            />
-
-
     </RelativeLayout>
+
+
 
 </androidx.cardview.widget.CardView>

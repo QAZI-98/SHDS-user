@@ -73,6 +73,18 @@ class doctor  {
     }
 
 
+    //for view doctor
+    public doctor(String _special,String _name,String _location,String _phone,String _day,String _time) {
+
+        name = _name;
+        speciality=_special;
+        phone=_phone;
+        location=_location;
+        day=_day;
+        time=_time;
+    }
+
+
     public String getName() {
         return name;
     }

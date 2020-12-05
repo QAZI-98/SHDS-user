@@ -1,10 +1,5 @@
 package com.example.fyp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,7 +12,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,9 +27,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -59,7 +55,7 @@ public class appointment_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment_page);
         prefs = getSharedPreferences(appoint_nav.MY_PREFS_NAME, MODE_PRIVATE);
-     flag = prefs.getInt("flag", 0);
+        flag = prefs.getInt("flag", 3);
         sdf=new SimpleDateFormat("yyyy-MM-dd");
         String date_toaday = sdf.format(new Date());
 
@@ -90,22 +86,27 @@ public class appointment_page extends AppCompatActivity {
                     }
                     diffindays = firstDate.getTime() - secondDate.getTime();
                     diffindays = diffindays / (24 * 60 * 60 * 1000);
-                          Log.e("mycheck",Long.toString(diffindays));
-                           Log.e("abc","abcd");
+                    Log.e("mycheck",Long.toString(diffindays));
+                    Log.e("abc","abcd");
+
+                    loc = ds.child("location").getValue(String.class);
+                    phone = ds.child("phone").getValue(String.class);
+                    name = ds.child("doc_name").getValue(String.class);
+                    special = ds.child("speciality").getValue(String.class);
+                    day = ds.child("day").getValue(String.class);
+                    time = ds.child("time").getValue(String.class);
+                    key = ds.child("appoint_id").getValue(String.class);
+                    apoint_date = ds.child("appoint_date").getValue(String.class);
 
 
-                    if (ds.child("useremail").getValue(String.class).equals(useremail) && diffindays>=flag) {
+                    if (flag==0 && ds.child("useremail").getValue(String.class).equals(useremail) && diffindays>=0) {
                         Log.i("abc",ds.child("location").getValue(String.class));
-                        loc = ds.child("location").getValue(String.class);
-                        phone = ds.child("phone").getValue(String.class);
-                        name = ds.child("doc_name").getValue(String.class);
-                        special = ds.child("speciality").getValue(String.class);
-                        day = ds.child("day").getValue(String.class);
-                        time = ds.child("time").getValue(String.class);
-                        key = ds.child("appoint_id").getValue(String.class);
-                        apoint_date = ds.child("appoint_date").getValue(String.class);
+                        cliniclList.add(new appointment
+                                (key, apoint_date, special, name, loc, phone, day, time));
+                    }
+                    else if(flag==1 && ds.child("useremail").getValue(String.class).equals(useremail) && diffindays<0) {
 
-
+                        Log.i("abc",ds.child("location").getValue(String.class));
                         cliniclList.add(new appointment
                                 (key, apoint_date, special, name, loc, phone, day, time));
                     }
@@ -113,11 +114,11 @@ public class appointment_page extends AppCompatActivity {
 
                 }
                 courseAdapter = new UsersAdapter(cliniclList);
-             recyclerView.setAdapter(courseAdapter);
+                recyclerView.setAdapter(courseAdapter);
                 linearLayoutManager = new LinearLayoutManager(appointment_page.this);
                 linearLayoutManager.setStackFromEnd(true);
                 recyclerView.setLayoutManager(linearLayoutManager);
-           }
+            }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -211,6 +212,8 @@ public class appointment_page extends AppCompatActivity {
                 _number = itemView.findViewById(R.id.phone);
                 confirm=itemView.findViewById(R.id.confirm_button);
                 _date=itemView.findViewById(R.id.date);
+                if (flag==1)
+                    confirm.setVisibility(View.INVISIBLE);
             }
         }
     }

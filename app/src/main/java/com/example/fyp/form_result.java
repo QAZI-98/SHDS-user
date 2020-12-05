@@ -127,7 +127,6 @@ public class form_result extends AppCompatActivity {
 
     }
 
-
     public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersAdapterVh> {
 
         private List<doctor> clinicList;
@@ -165,8 +164,37 @@ public class form_result extends AppCompatActivity {
             holder._day.setText( _day+" "+_time);
             holder._number.setText(phone);
 
+            LocalDate ldt = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                ldt = LocalDate.now();
 
+                switch (_day) {
+                    case "Monday":
+                        ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
+                        break;
+                    case "Tuesday":
+                        ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.TUESDAY));
+                        break;
+                    case "Wednesday":
+                        ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.WEDNESDAY));
+                        break;
+                    case "Thursday":
+                        ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.THURSDAY));
+                        break;
+                    case "Friday":
+                        ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.FRIDAY));
+                        break;
+                    case "Saturday":
+                        ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+                        break;
+                    case "Sunday":
+                        ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.SUNDAY));
+                        break;
+                }
 
+            }
+
+            final String date =ldt.toString();
             holder.confirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View view) {
@@ -179,7 +207,7 @@ public class form_result extends AppCompatActivity {
                             for (DataSnapshot ds : snapshot.getChildren()) {
 
 
-                                if (ds.child("docusername").getValue(String.class).equals(_username)) {
+                                if (ds.child("docusername").getValue(String.class).equals(_username) && ds.child("appoint_date").getValue(String.class).equals(date)) {
                                     no_of_appointments++;
                                     if (ds.child("useremail").getValue(String.class).equals(useremail)) {
                                         already_booked = true;
@@ -206,38 +234,11 @@ public class form_result extends AppCompatActivity {
 
                                 if(no_of_appointments<2){
 
-                                    LocalDate ldt = null;
-                                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                                        ldt = LocalDate.now();
 
-                                        switch (_day)
-                                        {
-                                            case "Monday":
-                                                ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
-                                                break;
-                                            case "Tuesday":
-                                                ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.TUESDAY));
-                                                break;
-                                            case "Wednesday":
-                                                ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.WEDNESDAY));
-                                                break;
-                                            case "Thursday":
-                                                ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.THURSDAY));
-                                                break;
-                                            case "Friday":
-                                                ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.FRIDAY));
-                                                break;
-                                            case "Saturday":
-                                                ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
-                                                break;
-                                            case "Sunday":
-                                                ldt = ldt.with(TemporalAdjusters.next(DayOfWeek.SUNDAY));
-                                                break;
 
-                                        }
                                         key=appointment_reference.push().getKey();
                                         appointment_reference.child(key)
-                                                .setValue(new appointment(useremail,_username,key,ldt.toString(),users_name,users_phone,users_gender,_speciality,_doctorName,_location,phone,_day,_time));
+                                                .setValue(new appointment(useremail,_username,key,date,users_name,users_phone,users_gender,_speciality,_doctorName,_location,phone,_day,_time));
                                         Snackbar.make(view, "Appointment Confirmed!", Snackbar.LENGTH_LONG)
                                                 .setAction("Close", new View.OnClickListener() {
                                                     @Override
@@ -247,12 +248,6 @@ public class form_result extends AppCompatActivity {
                                                 })
                                                 .setActionTextColor(getResources().getColor(android.R.color.holo_red_light))
                                                 .show();
-
-                                    }
-
-                                    else {
-                                        Toast.makeText(context, "Issue with android version", Toast.LENGTH_SHORT).show();
-                                    }
 
 
                                 }

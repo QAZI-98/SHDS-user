@@ -29,10 +29,17 @@ public class dashboard extends AppCompatActivity {
         appointment = findViewById(R.id.appointment);
 
 
+        viewdoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i = new Intent(dashboard.this, view_doctor.class);
+                startActivity(i);
+            }
+        });
         appointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                i = new Intent(dashboard.this, appointment_page.class);
+                i = new Intent(dashboard.this, appoint_nav.class);
                 startActivity(i);
             }
         });
